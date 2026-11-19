@@ -429,6 +429,7 @@ button,.tab,.badge{-webkit-tap-highlight-color:transparent}
  #sigbox .frow .btn{min-height:40px}
  .cur .okb{padding:6px 10px;font-size:13px;margin-top:6px}
 }
+.ph.pop{display:flex;align-items:center;justify-content:space-between;gap:8px}.ph.pop .btn[hidden]{display:none}.ph.pop .btn{min-height:32px;padding:0 10px;font-size:13px}
 </style>
 </head>
 <body>
@@ -522,7 +523,7 @@ button,.tab,.badge{-webkit-tap-highlight-color:transparent}
     </div>
     <div class="okb" id="ok" role="status" hidden></div>
    </section>
-   <section class="card"><div class="ph">Live attendance</div><ul class="live" id="live"></ul></section>
+   <section class="card"><div class="ph pop">Live attendance<button type="button" class="btn" id="popAtt" title="Open the attendee view in its own window, e.g. for a tablet or second screen"><i data-lucide="external-link"></i>Second screen</button></div><ul class="live" id="live"></ul></section>
   </div>
  </div>
 </main>
@@ -703,15 +704,12 @@ function tab(k,f){TABS.forEach(t=>{const on=t===k;$('#t-'+t).setAttribute('aria-
 TABS.forEach((t,n)=>{$('#t-'+t).onclick=()=>tab(t);$('#t-'+t).onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();tab(TABS[(n+1)%2],true)}}});
 let attWin=null;
 function setSel(v){selIdx=v;try{localStorage.setItem('nstw-sel',v)}catch(x){}}
-function openAtt(){
- if(!/^https?:/.test(location.href)){tab('att');return}
+function popAtt(){
  if(attWin&&!attWin.closed){attWin.focus();return}
  attWin=window.open(location.href.split('#')[0]+'#attendee','nstw-attendee');
- if(!attWin){tab('att');toast('Pop-up blocked — showing the attendee view here','')}
+ if(!attWin)toast('Pop-up blocked — allow pop-ups for this site to use a second window','err');
 }
-$('#t-att').onclick=openAtt;
-$('#t-att').onkeydown=e=>{if(e.key==='ArrowLeft'){e.preventDefault();$('#t-admin').focus()}};
-$('#t-admin').onkeydown=e=>{if(e.key==='ArrowRight'){e.preventDefault();$('#t-att').tabIndex=0;$('#t-att').focus()}};
+$('#popAtt').onclick=popAtt;
 addEventListener('storage',e=>{if(e.key==='nstw-sel'){selIdx=+e.newValue;renderAtt()}});
 addEventListener('storage',e=>{if(e.key===KEY){try{rows=JSON.parse(e.newValue)||[]}catch(x){rows=[]}render()}});
 
@@ -857,7 +855,7 @@ let sm=null,sb=null;try{sm=localStorage.getItem('nstw-mode');sb=localStorage.get
 setMode(sm||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
 if(sb==='1')setBrand(true);
 $('#brand').innerHTML=svg('palette');render();icons();migrate();
-try{if(location.hash==='#attendee'){document.querySelector('.tabs').style.display='none';$('#evtEdit').hidden=true;tab('att');selIdx=+(localStorage.getItem('nstw-sel')??-1);try{draft=JSON.parse(localStorage.getItem('nstw-draft'))}catch(x){}renderAtt()}else{localStorage.removeItem('nstw-draft')}}catch(x){}
+try{if(location.hash==='#attendee'){document.querySelector('.tabs').style.display='none';$('#evtEdit').hidden=true;tab('att');$('#popAtt').hidden=true;selIdx=+(localStorage.getItem('nstw-sel')??-1);try{draft=JSON.parse(localStorage.getItem('nstw-draft'))}catch(x){}renderAtt()}else{localStorage.removeItem('nstw-draft')}}catch(x){}
 </script>
 <script>
 /* ===== Loading screen, idle screen, tutorial ===== */
@@ -929,7 +927,7 @@ const ADMIN=[
  {sel:'.stats',title:'Live summary',body:'Total entries, male and female counts, how many have signed, and how many 15-row sheets the PDF will need.'},
  {sel:'.form',title:'1 · Add an attendee',body:'Type the full name, choose the sex, and optionally the grade or role. Fields marked * are required. Press “Add entry” and the person is queued for signing right away.'},
  {sel:'#fSchool',title:'School / organization',body:'Start typing to search schools by name or region. If it is not in the list, pick the “Use …” option at the top to keep exactly what you typed.'},
- {sel:'#t-att',title:'2 · Attendee view',body:'Opens in a separate window — ideal for a second screen or tablet. The attendee sees their details (even while you are still typing them) and signs on the pad with a finger, stylus or mouse.'},
+ {sel:'#t-att',title:'2 · Attendee view',body:'Switches to the signing screen. The attendee sees their details (even while you are still typing them) and signs on the pad with a finger, stylus or mouse. Use “Second screen” there if you want it in its own window on a tablet or another monitor.'},
  {sel:'#q',title:'Search',body:'Filter the attendance list by name or school.'},
  {sel:'.scroll',title:'3 · Attendance list',body:'Entries are grouped in sheets of 15. Click a Pending row (or its “Pending · Sign” badge) to send that person to the Attendee view. Signed entries show their signature. The trash icon removes an entry.'},
  {sel:['#bak','#imp','#clear'],title:'Backup, import & clear',body:'Backup downloads a CSV of every entry and signature. Import CSV adds to, or replaces, the sheet. Clear all empties it after a confirmation — back up first if unsure.'},
