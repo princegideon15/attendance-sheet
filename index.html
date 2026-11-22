@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){var r=document.documentElement;try{r.dataset.theme=localStorage.getItem('nstw-mode')||'dark';if(localStorage.getItem('nstw-brand')!=='0')r.dataset.brand='nstw'}catch(e){r.dataset.theme='dark';r.dataset.brand='nstw'}})()</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>NSTW Attendance Sheet</title>
@@ -852,8 +853,8 @@ function setBrand(on){
 $('#mode').onclick=()=>setMode(root.dataset.theme==='dark'?'light':'dark');
 $('#brand').onclick=()=>setBrand(!root.dataset.brand);
 let sm=null,sb=null;try{sm=localStorage.getItem('nstw-mode');sb=localStorage.getItem('nstw-brand')}catch(e){}
-setMode(sm||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
-if(sb==='1')setBrand(true);
+setMode(sm||'dark');
+if(sb!=='0')setBrand(true);
 $('#brand').innerHTML=svg('palette');render();icons();migrate();
 try{if(location.hash==='#attendee'){document.querySelector('.tabs').style.display='none';$('#evtEdit').hidden=true;tab('att');$('#popAtt').hidden=true;selIdx=+(localStorage.getItem('nstw-sel')??-1);try{draft=JSON.parse(localStorage.getItem('nstw-draft'))}catch(x){}renderAtt()}else{localStorage.removeItem('nstw-draft')}}catch(x){}
 </script>
