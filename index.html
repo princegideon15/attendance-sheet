@@ -85,33 +85,20 @@ label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
 .bad{border-color:var(--err)!important}
 .frow{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
 .frow .primary{flex:1;justify-content:center}
-.okb{margin-top:14px;padding:12px;border-radius:8px;background:var(--primary-soft);font-weight:600}
 body{min-height:100vh}
 @media(max-width:960px){.layout{grid-template-columns:1fr}.form{position:static}.wrap{padding:0 14px}}
 .tools{display:flex;gap:8px;position:absolute;top:16px;right:24px}
-.tabs{display:flex;justify-content:flex-start;gap:6px;margin-bottom:16px;border-bottom:1px solid var(--border)}
-.tab{background:none;border:0;border-bottom:3px solid transparent;padding:10px 18px;font:600 15px Inter,sans-serif;color:var(--muted);cursor:pointer;display:inline-flex;gap:8px;align-items:center;margin-bottom:-1px}
-.tab:hover{color:var(--text)}
-.tab[aria-selected=true]{color:var(--primary);border-color:var(--primary)}
-:root[data-theme="dark"] .tab[aria-selected=true]{color:var(--accent);border-color:var(--accent)}
-.pill{background:var(--primary);color:#fff;border-radius:999px;font-size:12px;padding:0 8px;min-width:22px;text-align:center}
 .badge{font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
 .badge.ok{background:#d1fae5;color:#065f46}.badge.wt{background:#fef3c7;color:#92400e}
 :root[data-theme="dark"] .badge.ok{background:#064e3b;color:#a7f3d0}:root[data-theme="dark"] .badge.wt{background:#78350f;color:#fde68a}
-.att{width:max(60%,760px);max-width:100%;margin:0 auto;display:grid;gap:16px}
-.cur{padding:20px}.cur h2{margin:0;font-size:20px}
-.det{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0}
-.det div{background:var(--row);border:1px solid var(--border);border-radius:10px;padding:10px 12px}.det small{display:block;color:var(--muted);font-size:12px}.det b{font-size:16px;word-break:break-word}
-#pad{width:100%;aspect-ratio:3/2;height:auto;display:block;margin:0;min-height:0}
-.live{list-style:none;margin:0;padding:0}.live li{display:flex;gap:12px;align-items:center;padding:10px 16px;border-top:1px solid var(--border)}.live li div{flex:1;min-width:0}.live small{display:block;color:var(--muted)}
-.ph{padding:14px 16px;font-weight:700}
+#pad{width:100%;aspect-ratio:3/2;height:auto;display:block;margin:0;min-height:0;touch-action:none;border:1px solid var(--border);border-radius:10px;background:#fff;cursor:crosshair}#pad.bad{border-color:#dc2626}.sighead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px}.sighead label{margin:0}.sighead .btn{min-height:32px;padding:0 10px;font-size:13px}
 .center{text-align:center}
 @media(max-width:700px){.tools{position:static}}
 .btn.del{color:#b91c1c}.btn.del:hover{background:#fee2e2}:root[data-theme="dark"] .btn.del{color:#fca5a5}:root[data-theme="dark"] .btn.del:hover{background:#450a0a}/* NSTW 2026 glass theme */
 :root[data-brand="nstw"][data-theme="light"]{--bg:#fbf5ee;--surface:rgba(255,255,255,.62);--border:rgba(255,255,255,.8);--row:rgba(255,255,255,.5);--shadow:0 10px 30px rgba(31,78,156,.16),0 2px 6px rgba(140,42,28,.08);--primary-soft:rgba(233,162,59,.3);--text:#1b1410;--muted:#4a3f3a;--glass-in:rgba(255,255,255,.7);--solid:rgba(255,255,255,.9)}
 :root[data-brand="nstw"][data-theme="dark"]{--bg:#17121d;--surface:rgba(38,28,52,.55);--border:rgba(255,255,255,.14);--row:rgba(255,255,255,.07);--shadow:0 10px 30px rgba(0,0,0,.45);--primary-soft:rgba(233,162,59,.22);--text:#f6efe9;--muted:#d7c9c0;--glass-in:rgba(255,255,255,.08);--solid:rgba(38,28,52,.94)}
 :root[data-brand="nstw"] body{background-color:var(--bg);background-attachment:fixed;background-image:radial-gradient(460px 460px at 0% 0%,rgba(233,162,59,.6),transparent 70%),radial-gradient(560px 560px at 100% 8%,rgba(31,78,156,.45),transparent 70%),radial-gradient(560px 560px at 92% 100%,rgba(140,42,28,.45),transparent 70%),radial-gradient(460px 460px at 0% 100%,rgba(127,200,192,.55),transparent 70%),repeating-linear-gradient(135deg,rgba(140,42,28,.06) 0 2px,transparent 2px 30px)}
-:root[data-brand="nstw"] .card,:root[data-brand="nstw"] header,:root[data-brand="nstw"] .tabs{background:var(--surface);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);border:1px solid var(--border);box-shadow:var(--shadow)}
+:root[data-brand="nstw"] .card,:root[data-brand="nstw"] header{background:var(--surface);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);border:1px solid var(--border);box-shadow:var(--shadow)}
 :root[data-brand="nstw"] .card{border-radius:22px;overflow:hidden}
 :root[data-brand="nstw"] header{border-radius:0 0 28px 28px;border-top:0}
 :root[data-brand="nstw"] dialog,:root[data-brand="nstw"] #list{background:var(--solid);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
@@ -120,24 +107,12 @@ body{min-height:100vh}
 :root[data-brand="nstw"] .btn.primary{background:var(--primary);border-color:transparent;color:#fff;box-shadow:0 6px 16px rgba(140,42,28,.35)}
 :root[data-brand="nstw"] .btn:hover{background:var(--row)}
 :root[data-brand="nstw"] .btn.primary:hover{background:var(--primary-h)}
-:root[data-brand="nstw"] .tabs{width:max-content;max-width:100%;padding:4px;border-radius:16px;flex-wrap:wrap}
-:root[data-brand="nstw"] .tab{border-radius:12px;border:0;margin:0}
-:root[data-brand="nstw"] .tab[aria-selected=true]{background:var(--primary);color:#fff;box-shadow:0 4px 12px rgba(140,42,28,.35)}
 :root[data-brand="nstw"] th{background:var(--row)}
-:root[data-brand="nstw"] td,:root[data-brand="nstw"] th,:root[data-brand="nstw"] .bar,:root[data-brand="nstw"] .live li{border-color:var(--border)}
+:root[data-brand="nstw"] td,:root[data-brand="nstw"] th,:root[data-brand="nstw"] .bar{border-color:var(--border)}
 :root[data-brand="nstw"] .det div{background:var(--row);border-radius:14px}
 :root[data-brand="nstw"] canvas{border-radius:16px;box-shadow:inset 0 2px 8px rgba(0,0,0,.08)}
 :root[data-brand="nstw"] .badge{border-radius:999px;box-shadow:0 1px 3px rgba(0,0,0,.12)}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){:root[data-brand="nstw"] .card,:root[data-brand="nstw"] header,:root[data-brand="nstw"] .tabs{background:var(--solid)}}
-.cur{padding:28px}
-.curgrid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:28px;align-items:start}
-.curgrid:has(#sigbox[hidden]){grid-template-columns:1fr}
-.info h2{font-size:22px}.info .sub{font-size:15px;margin-top:6px}
-.info .det{grid-template-columns:1fr;gap:14px}
-.info .det div{padding:16px 20px}
-.info .det small{font-size:12px;text-transform:uppercase;letter-spacing:.05em}
-.info .det b{font-size:20px;line-height:1.25}
-@media(max-width:800px){.curgrid{grid-template-columns:1fr}.info .det b{font-size:18px}.info h2{font-size:20px}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){:root[data-brand="nstw"] .card,:root[data-brand="nstw"] header{background:var(--solid)}}
 :root[data-brand="nstw"] select{color:var(--text)}
 :root[data-brand="nstw"][data-theme="light"] select option{background:#fff;color:#1b1410}
 :root[data-brand="nstw"][data-theme="dark"] select option{background:#261c34;color:#f6efe9}
@@ -227,48 +202,6 @@ input:disabled{opacity:.55;cursor:not-allowed}
 .tskip{background:none;border:0;color:var(--muted);font:600 13px Inter,sans-serif;cursor:pointer;padding:8px 4px;text-decoration:underline}
 @media(max-width:700px){.evtform{width:calc(100vw - 48px)}}
 
-/* ===== Attendee view: fit a landscape screen (no scrolling) ===== */
-.att [hidden]{display:none!important}
-@media (min-width:640px) and (orientation:landscape){
- html:has(#p-att:not([hidden])),body:has(#p-att:not([hidden])){height:100dvh;overflow:hidden}
- body:has(#p-att:not([hidden])){display:flex;flex-direction:column;min-height:0}
- body:has(#p-att:not([hidden])) .strip{height:6px;flex:none}
- body:has(#p-att:not([hidden])) header{flex:none;margin-bottom:10px}
- body:has(#p-att:not([hidden])) .top{padding:8px 20px;gap:0}
- body:has(#p-att:not([hidden])) .logo{width:44px;height:44px}
- body:has(#p-att:not([hidden])) .brandrow{gap:12px;flex-wrap:nowrap;align-items:center}
- body:has(#p-att:not([hidden])) h1{font-size:18px}
- body:has(#p-att:not([hidden])) .org{font-size:11px}
- body:has(#p-att:not([hidden])) header .sub{font-size:12px;line-height:1.3}
- body:has(#p-att:not([hidden])) .tools{top:12px;right:20px}
- body:has(#p-att:not([hidden])) main.wrap{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 16px 12px}
- body:has(#p-att:not([hidden])) .tabs{flex:none;margin-bottom:10px}
- #p-att:not([hidden]){flex:1;min-height:0}
- .att{width:100%;max-width:none;height:100%;margin:0;grid-template-columns:minmax(0,1fr) clamp(240px,23vw,320px);grid-template-rows:minmax(0,1fr);gap:12px}
- .att>section{min-height:0}
- .cur{padding:16px 20px;display:flex;flex-direction:column;overflow:hidden;container-type:size}
- #waiting:not([hidden]){flex:1;display:grid;place-items:center;font-size:clamp(18px,3vh,26px)}
- .cur .curgrid{flex:1;min-height:0;gap:20px;align-items:stretch}
- .info{min-height:0;overflow:auto}
- .info h2{font-size:clamp(18px,3.2vh,24px)}
- .info .sub{font-size:14px;margin-top:4px}
- .info .det{gap:8px;margin:10px 0 0}
- .info .det div{padding:8px 14px}
- .info .det small{font-size:11px}
- .info .det b{font-size:clamp(16px,2.7vh,21px)}
- #sigbox{--padw:min(100%,calc((100dvh - 300px)*1.5));display:flex;flex-direction:column;justify-content:center;min-height:0}
- @supports (height:1cqh){#sigbox{--padw:min(100%,calc((100cqh - 175px)*1.5))}}
- #sigbox>*{width:var(--padw);margin-left:auto;margin-right:auto}
- #sigbox .frow{margin-top:10px;justify-content:flex-end}
- #sigbox .frow .btn{min-height:48px;padding:0 20px}
- #sigbox .frow .primary{flex:1}
- .cur .okb{flex:none;margin-top:8px;padding:10px 12px}
- .att>section:last-child{display:flex;flex-direction:column;overflow:hidden}
- .att .ph{flex:none}
- .att .live{flex:1;min-height:0;overflow:auto}
- .att .live li{padding:8px 14px}
-}
-
 /* ===== Basic animations & transitions ===== */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -282,7 +215,7 @@ input:disabled{opacity:.55;cursor:not-allowed}
 @keyframes pendPulse{0%,100%{box-shadow:0 0 0 0 rgba(217,119,6,.35)}50%{box-shadow:0 0 0 5px rgba(217,119,6,0)}}
 @keyframes iconSpin{from{transform:rotate(-90deg) scale(.6);opacity:0}to{transform:none;opacity:1}}
 /* smooth theme / colour changes */
-body,header,.card,.tabs,.tab,th,td,input,select,dialog,.det div,.okb,canvas,.pill,.badge{transition:background-color .3s ease,color .3s ease,border-color .25s ease,box-shadow .25s ease}
+body,header,.card,th,td,input,select,dialog,canvas,.badge{transition:background-color .3s ease,color .3s ease,border-color .25s ease,box-shadow .25s ease}
 /* buttons */
 .btn{transition:background-color .15s ease,color .15s ease,border-color .15s ease,box-shadow .2s ease,transform .12s ease}
 .btn:hover:not(:disabled){transform:translateY(-1px)}
@@ -291,21 +224,18 @@ body,header,.card,.tabs,.tab,th,td,input,select,dialog,.det div,.okb,canvas,.pil
 .btn.icon svg{transition:transform .3s ease}
 .btn.icon:hover svg{transform:rotate(12deg)}
 #mode svg,#brand svg{animation:iconSpin .45s ease}
-.tab{transition:color .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease}
 /* inputs */
 input,select{transition:border-color .2s ease,box-shadow .2s ease,background-color .3s ease}
 input:focus,select:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-soft);outline:none}
 canvas:hover{border-color:var(--primary)}
 /* lists & rows */
 tbody tr{transition:background-color .15s ease}
-tr.rowin,.live li.rowin{animation:rowIn .6s ease}
+tr.rowin{animation:rowIn .6s ease}
 .badge.pop{animation:badgePop .55s cubic-bezier(.2,.9,.3,1.4)}
 button.badge.wt{animation:pendPulse 2.2s ease-in-out infinite}
 .stat b.bump{animation:bump .45s ease;display:block;transform-origin:left center}
 /* panels, dialogs, toast, dropdown */
-#p-admin:not([hidden]),#p-att:not([hidden]){animation:fadeUp .35s ease}
-#cur:not([hidden]),#waiting:not([hidden]){animation:fadeIn .35s ease}
-.okb:not([hidden]){animation:popIn .4s ease}
+#p-admin:not([hidden]){animation:fadeUp .35s ease}
 dialog[open]:not(#tour):not(#idle){animation:dlgIn .22s ease}
 dialog[open]:not(#tour):not(#idle)::backdrop{animation:fadeIn .22s ease}
 #idle[open]{animation:fadeIn .6s ease}
@@ -319,14 +249,13 @@ html.ready .stats .stat:nth-child(2){animation-delay:.06s}
 html.ready .stats .stat:nth-child(3){animation-delay:.12s}
 html.ready .stats .stat:nth-child(4){animation-delay:.18s}
 html.ready .stats .stat:nth-child(5){animation-delay:.24s}
-html.ready .tabs{animation:fadeUp .5s .1s ease both}
 html.ready #p-admin .layout>*{animation:fadeUp .55s .2s ease both}
 html.ready #p-admin .layout>*+*{animation-delay:.3s}
 
 /* ===== Mobile responsive ===== */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{overflow-wrap:break-word}
-button,.tab,.badge{-webkit-tap-highlight-color:transparent}
+button,.badge{-webkit-tap-highlight-color:transparent}
 .brandrow>div{min-width:0}
 @media(max-width:960px){
  main.wrap{padding:0 max(18px,env(safe-area-inset-right)) 32px max(18px,env(safe-area-inset-left))}
@@ -346,9 +275,6 @@ button,.tab,.badge{-webkit-tap-highlight-color:transparent}
  h1{font-size:18px}.org{font-size:11px;line-height:1.3}.sub{font-size:13px;line-height:1.4}
  .evtform{width:100%;min-width:0}
  main.wrap{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
- /* tabs */
- .tabs,:root[data-brand="nstw"] .tabs{width:100%}
- .tab{flex:1;justify-content:center;padding:10px 8px;font-size:14px}
  /* stats */
  .stats{grid-template-columns:1fr 1fr;gap:10px}
  .stats .stat:first-child{grid-column:1/-1}
@@ -379,32 +305,12 @@ button,.tab,.badge{-webkit-tap-highlight-color:transparent}
  tbody tr[data-i] td:nth-child(7):empty{display:none}
  .sigthumb{height:44px}
  .sheetbreak,.sheetbreak td{display:block}
- /* attendee view (portrait) */
- .att{width:100%;gap:12px}
- .cur{padding:16px}
- .info h2{font-size:18px}
- .info .sub{font-size:13px}
- .curgrid{gap:14px}
- .info .det{grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 0}
- .info .det>div:nth-child(-n+2){grid-column:1/-1}
- .info .det div{padding:8px 12px}
- .info .det b{font-size:17px}
- #sigbox .frow{flex-wrap:nowrap}
- #sigbox .frow .btn{min-height:48px}
- #sigbox .frow .primary{flex:1;justify-content:center}
- .ph{padding:12px 14px}
- .live li{padding:10px 14px}
  /* dialogs, toast, dropdown */
  dialog{padding:16px}
  .acts .btn{flex:1 1 auto;justify-content:center}
  .setrow{flex-wrap:wrap}.setrow input{max-width:130px}
  #toast{width:max-content;max-width:calc(100vw - 32px);text-align:center}
  #list{max-height:40vh}
-}
-/* small landscape tablets / large phones: signature pad + details only */
-@media (min-width:640px) and (max-width:819px) and (orientation:landscape){
- .att{grid-template-columns:minmax(0,1fr)}
- .att>section:last-child{display:none}
 }
 /* short landscape screens (phones turned sideways) */
 @media (orientation:landscape) and (max-height:520px){
@@ -414,23 +320,7 @@ button,.tab,.badge{-webkit-tap-highlight-color:transparent}
  .idisc{width:56px;height:56px}.idisc img{width:42px;height:42px}
  .iclock{font-size:clamp(44px,20vh,96px)}.iapp{margin-top:0;font-size:12px}
  .istat{margin-top:2px}.ihint{margin-top:8px;padding:6px 14px;font-size:13px}
- body:has(#p-att:not([hidden])) .org,body:has(#p-att:not([hidden])) #evtRow{display:none}
- body:has(#p-att:not([hidden])) .wrap.top{padding:6px 14px;min-height:46px}
- body:has(#p-att:not([hidden])) .tools{position:absolute;order:0;align-self:auto;top:5px;right:12px}
- body:has(#p-att:not([hidden])) .tools .btn.icon{width:36px;min-height:36px}
- body:has(#p-att:not([hidden])) .logo{width:34px;height:34px}
- body:has(#p-att:not([hidden])) header{margin-bottom:6px}
- .cur{padding:10px 14px}
- .info h2{font-size:16px}.info .sub{display:none}
- .info .det{gap:6px;margin-top:6px}.info .det div{padding:5px 10px}
- #sigbox label{display:none}
- #sigbox{--padw:min(100%,calc((100dvh - 190px)*1.5))}
- @supports (height:1cqh){#sigbox{--padw:min(100%,calc((100cqh - 105px)*1.5))}}
- #sigbox .frow{margin-top:6px}
- #sigbox .frow .btn{min-height:40px}
- .cur .okb{padding:6px 10px;font-size:13px;margin-top:6px}
 }
-.ph.pop{display:flex;align-items:center;justify-content:space-between;gap:8px}.ph.pop .btn[hidden]{display:none}.ph.pop .btn{min-height:32px;padding:0 10px;font-size:13px}
 .dd{position:relative;display:inline-flex}
 .ddch{display:inline-flex}.ddch svg{width:16px;height:16px}
 .ddm{position:absolute;right:0;top:calc(100% + 6px);z-index:60;min-width:290px;max-width:calc(100vw - 32px);max-height:min(60vh,420px);overflow:auto;padding:6px;background:var(--solid,var(--surface));color:var(--text);border:1px solid var(--border);border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.35)}
@@ -470,10 +360,6 @@ button,.tab,.badge{-webkit-tap-highlight-color:transparent}
 </div></header>
 
 <main class="wrap">
- <div class="tabs" role="tablist" aria-label="Views">
-  <button class="tab" role="tab" id="t-admin" aria-selected="true" aria-controls="p-admin">Admin view</button>
-  <button class="tab" role="tab" id="t-att" aria-selected="false" aria-controls="p-att" tabindex="-1">Attendee view <span class="pill" id="qn" title="Waiting for signature">0</span></button>
- </div>
  <section class="stats" aria-label="Summary">
   <div class="card stat"><b id="sTotal">0</b><span>Total entries</span></div>
   <div class="card stat"><b id="sM">0</b><span>Male</span></div>
@@ -482,11 +368,11 @@ button,.tab,.badge{-webkit-tap-highlight-color:transparent}
   <div class="card stat"><b id="sSheets">1</b><span>Sheets (15 per page)</span></div>
  </section>
 
- <div id="p-admin" role="tabpanel" aria-labelledby="t-admin">
+ <div id="p-admin">
   <div class="layout">
    <section class="card form" aria-labelledby="ft">
     <h2 id="ft">Add attendance entry</h2>
-    <p class="sub">The entry appears instantly in the Attendee view for signing. <span class="req">*</span> required.</p>
+    <p class="sub">Fill in the details, sign in the box, then press Submit. <span class="req">*</span> required.</p>
     <form id="af" novalidate>
      <label for="fName">Full name <span class="req">*</span></label>
      <input id="fName" autocomplete="off" placeholder="e.g. Juan Dela Cruz"><div class="err" id="eName"></div>
@@ -496,7 +382,9 @@ button,.tab,.badge{-webkit-tap-highlight-color:transparent}
       <div><label for="fGrade">Grade / Year / Role</label><input id="fGrade" placeholder="e.g. Grade 11"></div>
       <div><label for="fSex">Sex <span class="req">*</span></label><select id="fSex"><option value="">Select</option><option>Male</option><option>Female</option></select><div class="err" id="eSex"></div></div>
      </div>
-     <div class="frow"><button type="submit" class="btn primary">Add entry</button></div>
+     <div class="sighead"><label for="pad">Signature <span class="req">*</span></label><button type="button" class="btn" id="pClear"><i data-lucide="eraser"></i>Clear</button></div>
+     <canvas id="pad" width="1200" height="800" tabindex="-1" aria-label="Signature pad: draw your signature with mouse, finger or stylus"></canvas><div class="err" id="eSig"></div>
+     <div class="frow"><button type="submit" class="btn primary" id="sigsub">Submit</button></div>
     </form>
    </section>
    <section class="card">
@@ -525,26 +413,6 @@ button,.tab,.badge{-webkit-tap-highlight-color:transparent}
   </div>
  </div>
 
- <div id="p-att" role="tabpanel" aria-labelledby="t-att" hidden>
-  <div class="att">
-   <section class="card cur" aria-live="polite">
-    <div id="waiting" class="center empty">Waiting for the admin to add an entry…</div>
-    <div id="cur" class="curgrid" hidden><div class="info">
-     <h2>Please sign your attendance</h2>
-     <p class="sub" id="cNo"></p>
-     <div class="det">
-      <div><small>Name</small><b id="cName"></b></div><div><small>School / Organization</small><b id="cSchool"></b></div>
-      <div><small>Grade / Year / Role</small><b id="cGrade"></b></div><div><small>Sex</small><b id="cSex"></b></div>
-     </div></div>
-     <div id="sigbox"><label for="pad" style="margin-top:0">Signature <span class="req">*</span></label>
-     <canvas id="pad" width="1200" height="800" tabindex="-1" aria-label="Signature pad: draw your signature with mouse, finger or stylus"></canvas><div class="err" id="eSig"></div>
-     <div class="frow"><button type="button" class="btn" id="pClear"><i data-lucide="eraser"></i>Clear</button><button type="button" class="btn primary" id="sigsub">Submit signature</button></div></div>
-    </div>
-    <div class="okb" id="ok" role="status" hidden></div>
-   </section>
-   <section class="card"><div class="ph pop">Live attendance<button type="button" class="btn" id="popAtt" title="Open the attendee view in its own window, e.g. for a tablet or second screen"><i data-lucide="external-link"></i>Second screen</button></div><ul class="live" id="live"></ul></section>
-  </div>
- </div>
 </main>
 
 <dialog id="cd" aria-labelledby="cdt"><h2 id="cdt" style="margin:0 0 6px;font-size:18px">Remove entry?</h2><p class="sub" id="cdm"></p><div class="acts"><button class="btn" id="cdNo">Cancel</button><button class="btn primary" id="cdYes" style="background:#b91c1c;border-color:#b91c1c">Remove</button></div></dialog>
@@ -613,25 +481,16 @@ const svg=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 function toast(m,t){const e=$('#toast');e.textContent=m;e.className=t||'';e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',2600)}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-let lastCur=-2,selIdx=-1,draft=null;
 const badge=r=>`<span class="badge ${r.sig?'ok':'wt'}">${r.sig?'Signed':'Pending'}</span>`;
 function render(){
  const b=$('#body');b.innerHTML='';
  rows.forEach((r,i)=>{
   if(i%15===0)b.insertAdjacentHTML('beforeend',`<tr class="sheetbreak"><td colspan="8">Sheet ${i/15+1}</td></tr>`);
   const tr=document.createElement('tr');tr.dataset.i=i;if(!r.sig)tr.className='pend';
-  tr.innerHTML=`<td class="no">${i+1}</td><td>${esc(r.name)}</td><td>${esc(r.school)}</td><td>${esc(r.grade)||'—'}</td><td>${esc(r.sex)}</td><td>${r.sig?badge(r):`<button class="badge wt" data-sign title="Open in Attendee view to sign">Pending · Sign</button>`}</td><td>${r.sig?`<img class="sigthumb" src="${r.sig}" alt="Signature of ${esc(r.name)}">`:''}</td><td><button class="btn icon del" data-del aria-label="Remove entry ${i+1}" title="Remove">${svg('trash')}</button></td>`;
+  tr.innerHTML=`<td class="no">${i+1}</td><td>${esc(r.name)}</td><td>${esc(r.school)}</td><td>${esc(r.grade)||'—'}</td><td>${esc(r.sex)}</td><td>${r.sig?badge(r):`<span class="badge wt">Pending</span>`}</td><td>${r.sig?`<img class="sigthumb" src="${r.sig}" alt="Signature of ${esc(r.name)}">`:''}</td><td><button class="btn icon del" data-del aria-label="Remove entry ${i+1}" title="Remove">${svg('trash')}</button></td>`;
   b.appendChild(tr);
  });
- filter();stats();renderAtt();icons();
-}
-function renderAtt(){
- const i=(selIdx>=0&&rows[selIdx]&&!rows[selIdx].sig)?selIdx:rows.findIndex(r=>!r.sig),r=rows[i],pend=rows.filter(x=>!x.sig).length;
- $('#qn').textContent=pend;const sh=draft||r;$('#cur').hidden=!sh;$('#waiting').hidden=!!sh;$('#sigbox').hidden=!!draft;
- if(draft){$('#cNo').textContent='Admin is entering details… the signature box opens once the entry is added.';$('#cName').textContent=draft.name||'—';$('#cSchool').textContent=draft.school||'—';$('#cGrade').textContent=draft.grade||'—';$('#cSex').textContent=draft.sex||'—'}else if(r){$('#cNo').textContent='Entry #'+(i+1)+(pend>1?' · '+(pend-1)+' more waiting':'');
-  $('#cName').textContent=r.name;$('#cSchool').textContent=r.school;$('#cGrade').textContent=r.grade||'—';$('#cSex').textContent=r.sex}
- if(lastCur!==i){lastCur=i;reset()}
- $('#live').innerHTML=rows.map((r,i)=>`<li><span class="no" style="color:var(--muted);font-weight:600">#${i+1}</span><div><b>${esc(r.name)}</b><small>${esc(r.school)}</small></div>${badge(r)}</li>`).reverse().join('')||'<li class="empty" style="display:block">No entries yet.</li>';
+ filter();stats();icons();
 }
 function stats(){
  const n=rows.length;
@@ -667,7 +526,7 @@ function showList(inp){
  inp.setAttribute('aria-expanded','true');
 }
 function hideList(){list.style.display='none';if(cur)cur.setAttribute('aria-expanded','false')}
-function pick(v){cur.value=v;hideList();setDraft();$("#eSchool").textContent="";cur.classList.remove("bad")}
+function pick(v){cur.value=v;hideList();$("#eSchool").textContent="";cur.classList.remove("bad")}
 list.addEventListener('mousedown',e=>{e.preventDefault();const o=e.target.closest('[role=option]');if(o)pick(o.dataset.v)});
 addEventListener('scroll',e=>{if(!list.contains(e.target))hideList()},true);addEventListener('resize',hideList);
 
@@ -682,59 +541,31 @@ fs.addEventListener('keydown',e=>{
  if(e.key==='Escape')hideList();
 });
 $('#af').addEventListener('input',e=>e.target.classList.remove('bad'));
-function setDraft(){const d={name:$('#fName').value.trim(),school:$('#fSchool').value.trim(),grade:$('#fGrade').value.trim(),sex:$('#fSex').value};draft=(d.name||d.school||d.grade||d.sex)?d:null;try{localStorage.setItem('nstw-draft',JSON.stringify(draft))}catch(x){}renderAtt()}
-['input','change'].forEach(t=>$('#af').addEventListener(t,setDraft));
-addEventListener('storage',e=>{if(e.key==='nstw-draft'){try{draft=JSON.parse(e.newValue)}catch(x){draft=null}renderAtt()}});
 function ask(t,m,y){return new Promise(res=>{$('#cdt').textContent=t;$('#cdm').textContent=m;$('#cdYes').textContent=y;const d=$('#cd');d.showModal();$('#cdNo').focus();const done=v=>{d.close();res(v)};$('#cdYes').onclick=()=>done(true);$('#cdNo').onclick=()=>done(false);d.oncancel=()=>res(false)})}
-body.addEventListener('click',async e=>{const tr=e.target.closest('tr[data-i]');if(tr&&!e.target.closest('[data-del]')&&!rows[+tr.dataset.i].sig){setSel(+tr.dataset.i);renderAtt();toast('Sent '+rows[selIdx].name+' to the Attendee view for signing','ok');return}if(tr&&e.target.closest('[data-del]')){const i=+tr.dataset.i;if(await ask('Remove entry?',`Remove “${rows[i].name}” from the attendance sheet? This cannot be undone.`,'Remove')){rows.splice(i,1);setSel(-1);save();render();toast('Entry removed','')}}});
+body.addEventListener('click',async e=>{const tr=e.target.closest('tr[data-i]');if(tr&&e.target.closest('[data-del]')){const i=+tr.dataset.i;if(await ask('Remove entry?',`Remove “${rows[i].name}” from the attendance sheet? This cannot be undone.`,'Remove')){rows.splice(i,1);save();render();toast('Entry removed','')}}});
 $('#clear').onclick=async()=>{if(rows.length&&await ask('Clear all entries?','All '+rows.length+' entries and signatures will be removed. This cannot be undone.','Clear all')){rows=[];save();render();toast('Sheet cleared','')}};
 $('#af').addEventListener('submit',e=>{
  e.preventDefault();
  const v={name:$('#fName').value.trim(),school:$('#fSchool').value.trim(),grade:$('#fGrade').value.trim(),sex:$('#fSex').value};
- const errs={Name:!v.name&&'Please enter the full name.',School:!v.school&&'Please select or type a school or organization.',Sex:!v.sex&&'Please select the sex.'};
- const ids={Name:'#fName',School:'#fSchool',Sex:'#fSex'};let first=null;
+ const errs={Name:!v.name&&'Please enter the full name.',School:!v.school&&'Please select or type a school or organization.',Sex:!v.sex&&'Please select the sex.',Sig:!dirty&&'Please sign in the box above.'};
+ const ids={Name:'#fName',School:'#fSchool',Sex:'#fSex',Sig:'#pad'};let first=null;
  for(const k in errs){$('#e'+k).textContent=errs[k]||'';const el=$(ids[k]);el.classList.toggle('bad',!!errs[k]);el.setAttribute('aria-invalid',!!errs[k]);if(errs[k]&&!first)first=el}
  if(first){first.focus();return}
- rows.push({...v,sig:'',date:todayStr()});$('#af').reset();setDraft();save();render();$('#fName').focus();
- toast('Entry added — ready for signature in Attendee view','ok');
+ rows.push({...v,sig:sigData(),tp:1,date:todayStr()});$('#af').reset();reset();save();render();$('#fName').focus();
+ toast('Entry submitted','ok');
 });
 
 /* Signature pad */
 const cv=$('#pad'),ctx=cv.getContext('2d');let draw=false,dirty=false;
 function pos(e){const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*cv.width/r.width,(e.clientY-r.top)*cv.height/r.height]}
 function reset(){ctx.fillStyle='#fff';ctx.fillRect(0,0,cv.width,cv.height);ctx.strokeStyle='#111827';ctx.lineWidth=6;ctx.lineCap=ctx.lineJoin='round';dirty=false}
-cv.addEventListener('pointerdown',e=>{draw=true;cv.setPointerCapture(e.pointerId);const[x,y]=pos(e);ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+.1,y);ctx.stroke();dirty=true;cv.classList.remove('bad');$('#eSig').textContent='';$('#ok').hidden=true});
+cv.addEventListener('pointerdown',e=>{draw=true;cv.setPointerCapture(e.pointerId);const[x,y]=pos(e);ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+.1,y);ctx.stroke();dirty=true;cv.classList.remove('bad');cv.removeAttribute('aria-invalid');$('#eSig').textContent=''});
 cv.addEventListener('pointermove',e=>{if(!draw)return;const[x,y]=pos(e);ctx.lineTo(x,y);ctx.stroke()});
 ['pointerup','pointercancel'].forEach(t=>cv.addEventListener(t,()=>draw=false));
-$('#pClear').onclick=reset;reset();
+$('#pClear').onclick=()=>{reset();cv.classList.remove('bad');$('#eSig').textContent=''};reset();
 function sigData(){const W=cv.width,H=cv.height,d=ctx.getImageData(0,0,W,H),a=d.data;let x0=W,y0=H,x1=0,y1=0;for(let k=0;k<a.length;k+=4){const al=Math.round(Math.min(255,Math.max(0,(255-a[k])*255/230)));a[k]=17;a[k+1]=24;a[k+2]=39;a[k+3]=al;if(al>10){const p=k/4,x=p%W,y=(p-x)/W;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}}const c=document.createElement('canvas');c.width=W;c.height=H;c.getContext('2d').putImageData(d,0,0);const pd=16;x0=Math.max(0,x0-pd);y0=Math.max(0,y0-pd);x1=Math.min(W-1,x1+pd);y1=Math.min(H-1,y1+pd);const o=document.createElement('canvas');o.width=x1-x0+1;o.height=y1-y0+1;o.getContext('2d').drawImage(c,x0,y0,o.width,o.height,0,0,o.width,o.height);return o.toDataURL('image/png')}
 function fixSig(r){return new Promise(res=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const x=c.getContext('2d');x.drawImage(im,0,0);const d=x.getImageData(0,0,c.width,c.height),a=d.data;let tp=false;for(let k=3;k<a.length;k+=4)if(a[k]<250){tp=true;break}if(tp){r.tp=1;res();return}for(let k=0;k<a.length;k+=4){a[k+3]=Math.round(Math.min(255,Math.max(0,(255-a[k])*255/230)));a[k]=17;a[k+1]=24;a[k+2]=39}x.putImageData(d,0,0);r.sig=c.toDataURL('image/png');r.tp=1;res()};im.onerror=()=>res();im.src=r.sig})}
 async function migrate(){const old=rows.filter(r=>r.sig&&!r.tp);if(!old.length)return;await Promise.all(old.map(fixSig));save();render()}
-$('#sigsub').onclick=async()=>{
- const i=rows.findIndex(r=>!r.sig);if(i<0)return;
- if(!dirty){$('#eSig').textContent='Please sign in the box above.';cv.classList.add('bad');cv.setAttribute('aria-invalid','true');return}
- const b=$('#sigsub');b.disabled=true;b.textContent='Submitting…';
- await new Promise(r=>setTimeout(r,400));
- const nm=rows[i].name;rows[i].sig=sigData();rows[i].tp=1;save();render();
- b.disabled=false;b.textContent='Submit signature';
- const ok=$('#ok');ok.hidden=false;ok.textContent=`Thank you, ${nm}! Your attendance is recorded.`;toast('Signature saved','ok');
-};
-
-/* Tabs */
-const TABS=['admin','att'];
-function tab(k,f){TABS.forEach(t=>{const on=t===k;$('#t-'+t).setAttribute('aria-selected',on);$('#t-'+t).tabIndex=on?0:-1;$('#p-'+t).hidden=!on});$('.stats').style.display=k==='att'?'none':'';if(f)$('#t-'+k).focus()}
-TABS.forEach((t,n)=>{$('#t-'+t).onclick=()=>tab(t);$('#t-'+t).onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();tab(TABS[(n+1)%2],true)}}});
-let attWin=null;
-function setSel(v){selIdx=v;try{localStorage.setItem('nstw-sel',v)}catch(x){}}
-function popAtt(){
- if(attWin&&!attWin.closed){attWin.focus();return}
- attWin=window.open(location.href.split('#')[0]+'#attendee','nstw-attendee');
- if(!attWin)toast('Pop-up blocked — allow pop-ups for this site to use a second window','err');
-}
-$('#popAtt').onclick=popAtt;
-addEventListener('storage',e=>{if(e.key==='nstw-sel'){selIdx=+e.newValue;renderAtt()}});
-addEventListener('storage',e=>{if(e.key===KEY){try{rows=JSON.parse(e.newValue)||[]}catch(x){rows=[]}render()}});
-
 /* PDF */
 /* PDF export: full / by date / full grouped by date */
 Object.assign(PATHS,{chev:'<path d="m6 9 6 6 6-6"/>'});
@@ -910,7 +741,7 @@ $('#impFile').addEventListener('change',async e=>{
  let mode='replace';
  if(rows.length){mode=await askImport(res.list.length,res.skipped);if(!mode)return}
  rows=mode==='add'?rows.concat(res.list):res.list;
- setSel(-1);save();render();migrate();
+ save();render();migrate();
  toast(`Imported ${res.list.length} ${res.list.length===1?'entry':'entries'}`+(res.skipped?` · ${res.skipped} skipped`:''),'ok');
 });
 
@@ -927,7 +758,6 @@ let sm=null,sb=null;try{sm=localStorage.getItem('nstw-mode');sb=localStorage.get
 setMode(sm||'dark');
 if(sb!=='0')setBrand(true);
 $('#brand').innerHTML=svg('palette');render();icons();migrate();
-try{if(location.hash==='#attendee'){document.querySelector('.tabs').style.display='none';$('#evtEdit').hidden=true;tab('att');$('#popAtt').hidden=true;selIdx=+(localStorage.getItem('nstw-sel')??-1);try{draft=JSON.parse(localStorage.getItem('nstw-draft'))}catch(x){}renderAtt()}else{localStorage.removeItem('nstw-draft')}}catch(x){}
 </script>
 <script>
 /* ===== Loading screen, idle screen, tutorial ===== */
@@ -935,8 +765,6 @@ try{if(location.hash==='#attendee'){document.querySelector('.tabs').style.displa
 const $$=s=>document.querySelector(s);
 Object.assign(PATHS,{help:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>'});
 $$('#help').innerHTML=svg('help');$$('#set').innerHTML=svg('clock');
-const isAtt=location.hash==='#attendee';
-if(isAtt)$$('#set').style.display='none';
 const logoSrc=$$('.logo').src;
 $$('#bootLogo').src=logoSrc;$$('#idleLogo').src=logoSrc;
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -948,7 +776,7 @@ let mi=0;const mt=setInterval(()=>{mi=Math.min(mi+1,msgs.length-1);$$('#bmsg').t
 const ready=new Promise(r=>{document.readyState==='complete'?r():addEventListener('load',r,{once:true});setTimeout(r,5000)});
 Promise.all([ready,new Promise(r=>setTimeout(r,reduce?500:2500))]).then(()=>{
  clearInterval(mt);boot.classList.add('out');document.documentElement.classList.add('ready');last=Date.now();
- setTimeout(()=>{boot.remove();try{if(!isAtt&&$$('#p-att').hidden&&localStorage.getItem('nstw-tour-admin')!=='1')startTour()}catch(e){}},reduce?0:550);
+ setTimeout(()=>{boot.remove();try{if(localStorage.getItem('nstw-tour-admin')!=='1')startTour()}catch(e){}},reduce?0:550);
 });
 
 /* ---------- Idle screen ---------- */
@@ -962,7 +790,7 @@ function tickIdle(){
  $$('#iclock').innerHTML=p(d.getHours())+'<span class="ic">:</span>'+p(d.getMinutes());
  $$('#idate').textContent=d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric'});
  const n=rows.length,pend=rows.filter(r=>!r.sig).length;
- $$('#istat').textContent=n?`${n} ${n===1?'entry':'entries'} · ${pend} waiting for signature`:'No entries yet';
+ $$('#istat').textContent=n?`${n} ${n===1?'entry':'entries'}`+(pend?` · ${pend} without signature`:''):'No entries yet';
 }
 function showIdle(force){
  if(idle.open||(!force&&tour.open))return;
@@ -997,23 +825,16 @@ const ADMIN=[
  {title:'Welcome to the NSTW Attendance Sheet',body:'This short tour shows how to add attendees, collect signatures and export the printable PDF. Use the buttons or the ← → keys. You can replay it any time with the ? button.'},
  {sel:'#evtRow',title:'Event subtitle',body:'This line appears in the header and at the top of every PDF page. Click the pencil to change the event name, date or venue.'},
  {sel:'.stats',title:'Live summary',body:'Total entries, male and female counts, how many have signed, and how many 15-row sheets the PDF will need.'},
- {sel:'.form',title:'1 · Add an attendee',body:'Type the full name, choose the sex, and optionally the grade or role. Fields marked * are required. Press “Add entry” and the person is queued for signing right away.'},
+ {sel:'.form',title:'1 · Add an attendee',body:'Type the full name, choose the sex, and optionally the grade or role. Fields marked * are required.'},
  {sel:'#fSchool',title:'School / organization',body:'Start typing to search schools by name or region. If it is not in the list, pick the “Use …” option at the top to keep exactly what you typed.'},
- {sel:'#t-att',title:'2 · Attendee view',body:'Switches to the signing screen. The attendee sees their details (even while you are still typing them) and signs on the pad with a finger, stylus or mouse. Use “Second screen” there if you want it in its own window on a tablet or another monitor.'},
+ {sel:'#pad',title:'2 · Sign and submit',body:'Draw the signature in the box with a finger, stylus or mouse (Clear to try again), then press Submit to add the entry to the list.'},
  {sel:'#q',title:'Search',body:'Filter the attendance list by name or school.'},
- {sel:'.scroll',title:'3 · Attendance list',body:'Entries are grouped in sheets of 15. Click a Pending row (or its “Pending · Sign” badge) to send that person to the Attendee view. Signed entries show their signature. The trash icon removes an entry.'},
+ {sel:'.scroll',title:'3 · Attendance list',body:'Entries are grouped in sheets of 15. Signed entries show their signature. The trash icon removes an entry.'},
  {sel:['#bak','#imp','#clear'],title:'Backup, import & clear',body:'Backup downloads a CSV of every entry and signature. Import CSV adds to, or replaces, the sheet. Clear all empties it after a confirmation — back up first if unsure.'},
  {sel:'#pdf',title:'4 · Download PDF',body:'Opens a menu: download the full sheet, download a single date, or download the full sheet grouped by date. Each is a landscape A4 sheet with 15 rows per page and the signatures. Each page ends with the male and female count (for example, M - 14, F - 5), and the last page also shows the total.'},
  {sel:['#brand','#mode'],title:'Theme',body:'Switch the NSTW 2026 colour theme on or off, and toggle light or dark mode.'},
  {sel:'#set',title:'Idle screen settings',body:'Choose after how many minutes of inactivity the idle screen appears (default 15), or turn it off. It hides attendee names while nobody is using the sheet; tap anywhere to resume.'},
  {sel:'#help',title:'You’re all set!',body:'Click this ? button whenever you want to replay the tutorial. Happy recording!'}
-];
-const ATT=[
- {title:'Attendee screen',body:'This is where attendees confirm their details and sign. Entries added by the admin appear here automatically.'},
- {sel:['#cur','#waiting'],title:'Your details',body:'Check that your name, school and sex are correct. If you see “Waiting for the admin…”, you have not been added yet.'},
- {sel:'#pad',title:'Sign here',body:'Draw your signature in the box with your finger, stylus or mouse. Press Clear to try again.'},
- {sel:'#sigsub',title:'Submit',body:'Tap “Submit signature” to record your attendance. The next waiting person appears automatically.'},
- {sel:'#live',title:'Live attendance',body:'Everyone added so far, newest first, with a Signed or Pending badge.'}
 ];
 const spot=$$('#tspot'),pop=$$('#tpop');
 let steps=[],ti=0,tourKey='nstw-tour-admin',firstLayout=true;
@@ -1046,7 +867,7 @@ function go(n){
 }
 function startTour(){
  if(tour.open||idle.open)return;
- const att=!$$('#p-att').hidden;steps=att?ATT:ADMIN;tourKey=att?'nstw-tour-att':'nstw-tour-admin';firstLayout=true;
+ steps=ADMIN;firstLayout=true;
  tour.showModal();go(0);
 }
 function endTour(){if(tour.open)tour.close()}
@@ -1070,7 +891,6 @@ render=function(){
  const n=rows.length;
  if(n>prevLen){
   const tr=document.querySelector('#body tr[data-i="'+(n-1)+'"]');if(tr)tr.classList.add('rowin');
-  const li=document.querySelector('#live li');if(li)li.classList.add('rowin');
  }else if(n===prevLen){
   rows.forEach((r,i)=>{if(r.sig&&prevSig[i]===false){const b=document.querySelector('#body tr[data-i="'+i+'"] .badge');if(b)b.classList.add('pop')}});
  }
