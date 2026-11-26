@@ -661,12 +661,16 @@ input:disabled{opacity:.55;cursor:not-allowed}
 #tspot{position:fixed;border-radius:12px;pointer-events:none;box-shadow:0 0 0 3px var(--accent),0 0 0 100vmax rgba(8,10,20,.7);transition:left .3s,top .3s,width .3s,height .3s}
 #tspot.none{box-shadow:0 0 0 100vmax rgba(8,10,20,.7)}
 #tpop{position:fixed;width:min(390px,calc(100vw - 24px));background:var(--solid,var(--surface));color:var(--text);border:1px solid var(--border);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.4);padding:16px 18px 14px;transition:left .3s,top .3s}
-#tcount{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--primary)}
-:root[data-theme="dark"] #tcount{color:var(--accent)}
-#tbar{height:4px;border-radius:9px;background:rgba(127,127,127,.25);margin:8px 0 12px;overflow:hidden}
-#tfill{display:block;height:100%;background:var(--primary);border-radius:9px;transition:width .3s}
+#tbar{display:flex;gap:5px;margin:2px 0 14px}
+#tbar i{flex:1;height:5px;border-radius:9px;background:rgba(127,127,127,.28);transition:background-color .25s ease,transform .25s ease}
+#tbar i.on{background:var(--primary)}
+#tbar i.cur{transform:scaleY(1.5)}
+:root[data-theme="dark"] #tbar i.on{background:var(--accent)}
 #ttitle{margin:0 0 6px;font-size:18px}
-#tbody{margin:0;color:var(--muted);font-size:14.5px;line-height:1.55}
+#tbody{margin:0;color:var(--muted);font-size:14.5px;line-height:1.6;white-space:pre-line}
+.ti{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;background:var(--primary-soft);color:var(--primary);vertical-align:-5px;margin:0 2px}
+.ti svg{width:14px;height:14px}
+:root[data-theme="dark"] .ti{background:rgba(255,255,255,.1);color:var(--accent)}
 .tacts{display:flex;gap:8px;align-items:center;margin-top:14px}
 .tacts .grow{flex:1}
 .tskip{background:none;border:0;color:var(--muted);font:600 13px Inter,sans-serif;cursor:pointer;padding:8px 4px;text-decoration:underline}
@@ -806,7 +810,6 @@ button,button,.tab,.badge{-webkit-tap-highlight-color:transparent}
 /* ---- Sex radio buttons ---- */
 #af .lbl{font-weight:600;font-size:17px;margin:18px 0 8px}
 .radios{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.radios .rad:last-child{grid-column:1/-1}
 #af label.rad{display:block;position:relative;margin:0;font-size:18px;cursor:pointer}
 #af .rad input{position:absolute;inset:0;width:100%;height:100%;min-height:0;margin:0;padding:0;opacity:0;cursor:pointer}
 .rad span{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 14px;border:1px solid var(--border);border-radius:10px;background:var(--glass-in,var(--surface));font-weight:600;transition:border-color .2s ease,background-color .2s ease,box-shadow .2s ease}
@@ -886,7 +889,6 @@ button,button,.tab,.badge{-webkit-tap-highlight-color:transparent}
      <div class="radios" id="fSex" role="radiogroup" aria-labelledby="sexLbl" aria-required="true">
       <label class="rad"><input type="radio" name="sex" value="Male"><span>Male</span></label>
       <label class="rad"><input type="radio" name="sex" value="Female"><span>Female</span></label>
-      <label class="rad"><input type="radio" name="sex" value="Prefer not to say"><span>Prefer not to say</span></label>
      </div><div class="err" id="eSex"></div>
     </form>
    </section>
@@ -902,7 +904,6 @@ button,button,.tab,.badge{-webkit-tap-highlight-color:transparent}
      <div class="crow"><span>Total entries</span><b id="aTotal">0</b></div>
      <div class="crow"><span>Male</span><b id="aM">0</b></div>
      <div class="crow"><span>Female</span><b id="aF">0</b></div>
-     <div class="crow"><span>Prefer not to say</span><b id="aP">0</b></div>
      <div class="crow"><span>Signed</span><b id="aSig">0</b></div>
      <div class="crow"><span>Sheets (15 per page)</span><b id="aSheets">1</b></div>
     </div>
@@ -915,7 +916,6 @@ button,button,.tab,.badge{-webkit-tap-highlight-color:transparent}
   <div class="card stat"><b id="sTotal">0</b><span>Total entries</span></div>
   <div class="card stat"><b id="sM">0</b><span>Male</span></div>
   <div class="card stat"><b id="sF">0</b><span>Female</span></div>
-  <div class="card stat"><b id="sP">0</b><span>Prefer not to say</span></div>
   <div class="card stat"><b id="sSig">0</b><span>Signed</span></div>
   <div class="card stat"><b id="sSheets">1</b><span>Sheets (15 per page)</span></div>
  </section>
@@ -969,7 +969,7 @@ button,button,.tab,.badge{-webkit-tap-highlight-color:transparent}
  <p class="sub">The idle screen covers the sheet after a period without activity, so attendee names are not left on display. Nothing is lost — tap anywhere to resume.</p>
  <label class="chk" for="idleOn"><input type="checkbox" id="idleOn">Enable idle screen</label>
  <label for="idleMin">Show after</label>
- <div class="setrow"><input id="idleMin" type="number" inputmode="numeric" min="1" max="240" step="1"><span>minutes of inactivity (1–240, default 15)</span></div>
+ <div class="setrow"><input id="idleMin" type="number" inputmode="numeric" min="1" max="240" step="1"><span>minutes of inactivity (1–240, default 1)</span></div>
  <div class="err" id="eIdle"></div>
  <div class="acts"><button class="btn" id="idlePrev" type="button">Preview</button><button class="btn" id="setNo" type="button">Cancel</button><button class="btn primary" id="setYes" type="button">Save</button></div></dialog>
 <dialog id="idle" aria-label="Idle screen. Tap anywhere or press any key to continue.">
@@ -984,9 +984,9 @@ button,button,.tab,.badge{-webkit-tap-highlight-color:transparent}
 <dialog id="tour" aria-label="Step-by-step tutorial">
  <div id="tspot" class="none"></div>
  <div id="tpop" role="document">
-  <div id="tcount"></div><div id="tbar"><span id="tfill"></span></div>
+  <div id="tbar" role="progressbar" aria-label="Tour progress" aria-valuemin="1"></div>
   <h3 id="ttitle"></h3><p id="tbody"></p>
-  <div class="tacts"><button type="button" class="tskip" id="tskip">Skip tour</button><span class="grow"></span><button type="button" class="btn" id="tback">Back</button><button type="button" class="btn primary" id="tnext">Next</button></div>
+  <div class="tacts"><button type="button" class="tskip" id="tskip" aria-label="Skip the tour">Skip</button><span class="grow"></span><button type="button" class="btn" id="tback">Back</button><button type="button" class="btn primary" id="tnext">Next</button></div>
  </div>
 </dialog>
 <div id="list" role="listbox"></div>
@@ -1075,6 +1075,28 @@ const storeReady=(async()=>{
 const icons=()=>{try{lucide.createIcons()}catch(e){}};
 const PATHS={palette:'<circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.6-.7 1.6-1.7 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1a1.6 1.6 0 0 1 1.7-1.7H16c3 0 5.5-2.5 5.5-5.5C21.5 6 17.5 2 12 2z"/>',trash:'<path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/>',moon:'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/>'};
 const svg=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${PATHS[n]}</svg>`;
+Object.assign(PATHS,{
+ compass:'<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>',
+ header:'<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/>',
+ grid:'<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
+ form:'<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>',
+ user:'<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+ users:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+ school:'<rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M12 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/>',
+ cap:'<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
+ pen:'<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+ eraser:'<path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/>',
+ chart:'<line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/>',
+ search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+ list:'<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/><path d="M14 4h7"/><path d="M14 9h7"/><path d="M14 15h7"/><path d="M14 20h7"/>',
+ pages:'<path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/>',
+ save:'<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>',
+ upload:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/>',
+ download:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>',
+ file:'<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/>',
+ warn:'<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+ done:'<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>'
+});
 function toast(m,t){const e=$('#toast');e.textContent=m;e.className=t||'';e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',2600)}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
@@ -1095,10 +1117,9 @@ function stats(){
  $('#sTotal').textContent=n;
  $('#sM').textContent=rows.filter(r=>r.sex==='Male').length;
  $('#sF').textContent=rows.filter(r=>r.sex==='Female').length;
- $('#sP').textContent=rows.filter(r=>r.sex==='Prefer not to say').length;
  $('#sSig').textContent=rows.filter(r=>r.sig).length;
  $('#sSheets').textContent=Math.max(1,Math.ceil(n/15));
- ['Total','M','F','P','Sig','Sheets'].forEach(k=>$('#a'+k).textContent=$('#s'+k).textContent);
+ ['Total','M','F','Sig','Sheets'].forEach(k=>$('#a'+k).textContent=$('#s'+k).textContent);
 }
 let page=1,pageSize=15;
 function filter(){
@@ -1244,8 +1265,8 @@ async function makePdf(mode,date){
   const parts=subtitle.replace(/\s+/g,' ').trim().split(' · ');
   doc.setFont('helvetica','normal').setFontSize(9.5);
   const subLines=[...doc.splitTextToSize(parts[0],W-80),...(parts.length>1?doc.splitTextToSize(parts.slice(1).join(' | '),W-80):[])];
-  const cnt=l=>({m:l.filter(r=>r.sex==='Male').length,f:l.filter(r=>r.sex==='Female').length,p:l.filter(r=>r.sex==='Prefer not to say').length});
-  const fc=c=>`M - ${c.m}, F - ${c.f}`+(c.p?`, Prefer not to say - ${c.p}`:'');
+  const cnt=l=>({m:l.filter(r=>r.sex==='Male').length,f:l.filter(r=>r.sex==='Female').length});
+  const fc=c=>`M - ${c.m}, F - ${c.f}`;
   const TOT=cnt([...used]),logo=document.querySelector('.logo').src,navy=[20,36,88];
   const sigMap=new Map(),need=[...new Set([...used].map(r=>r.sig).filter(Boolean))];
   for(let k=0;k<need.length;k++){
@@ -1569,8 +1590,8 @@ Promise.all([ready,new Promise(r=>setTimeout(r,reduce?500:2500))]).then(()=>{
 
 /* ---------- Idle screen ---------- */
 const idle=$$('#idle'),tour=$$('#tour'),IMIN='nstw-idle-min',ION='nstw-idle-on';
-let idleMin=15,idleOn=true,shownAt=0,clockT=null;
-function loadIdle(){try{const v=parseInt(localStorage.getItem(IMIN),10);idleMin=v>=1&&v<=240?v:15;idleOn=localStorage.getItem(ION)!=='0'}catch(e){}}
+let idleMin=1,idleOn=true,shownAt=0,clockT=null;
+function loadIdle(){try{const v=parseInt(localStorage.getItem(IMIN),10);idleMin=v>=1&&v<=240?v:1;idleOn=localStorage.getItem(ION)!=='0'}catch(e){}}
 loadIdle();
 ['pointerdown','pointermove','keydown','wheel','touchstart','scroll'].forEach(t=>addEventListener(t,()=>{if(!idle.open)last=Date.now()},{capture:true,passive:true}));
 function tickIdle(){
@@ -1610,31 +1631,20 @@ $$('#setYes').onclick=()=>{
 
 /* ---------- Tutorial ---------- */
 const ADMIN=[
- {tab:'att',title:'Welcome to the NSTW Attendance Sheet',body:'This tour walks you through the page in order: the header, the header buttons, the Attendee tab (adding entries) and the Summary tab (reviewing, backing up and exporting). Use the buttons or the ← → keys. You can replay it any time with the ? button.'},
- {tab:'att',sel:['.brandrow .logo','.brandrow .org','header h1'],title:'Header',body:'The logo, agency name and sheet title are shown here, and the same heading is printed at the top of every PDF page.'},
- {tab:'att',sel:'#evtRow',title:'Event subtitle',body:'This line shows the event name, date and venue, and it is printed on every PDF page. Click the pencil to edit it, then Save. Use the restore button to bring back the default text.'},
- {tab:'att',sel:'#help',title:'Header button · Tutorial (?)',body:'Opens this step-by-step tutorial again whenever you need a refresher.'},
- {tab:'att',sel:'#set',title:'Header button · Idle screen settings',body:'Choose after how many minutes of inactivity the idle screen appears (default 15), or turn it off. The idle screen hides attendee names while nobody is using the sheet; tap anywhere to resume.'},
- {tab:'att',sel:'#brand',title:'Header button · NSTW 2026 theme',body:'Switches the NSTW 2026 colour theme on or off.'},
- {tab:'att',sel:'#mode',title:'Header button · Light / dark mode',body:'Toggles between light and dark mode, whichever is easier to read on your screen.'},
- {tab:'att',sel:'.tabs',title:'Tabs',body:'Attendee is where people check in. Summary shows the totals and the full list, and is where you back up, import and download the PDF. The number beside Summary is the total entries.'},
- {tab:'att',sel:'#af',title:'Attendee tab · Add an entry',body:'The left panel is the check-in form. Fill it in from top to bottom; a “START HERE” marker shows where to begin, then a “NEXT” marker points to the field to complete next, including the optional Grade / Year / Role.'},
- {tab:'att',sel:'#fName',title:'Full name',body:'Start here: type the attendee’s full name. This field is required.'},
- {tab:'att',sel:'#fSchool',title:'School / organization',body:'Start typing to search schools by name or region. If it is not in the list, pick the “Use …” option at the top to keep exactly what you typed. This field is required.'},
- {tab:'att',sel:'#fGradeWrap',title:'Grade / year / role (optional)',body:'Pick Grade, Year or Role from the dropdown, then type the value in the box next to it, for example 11, 2 or Teacher. It is saved as “Grade 11”, “Year 2” or “Teacher”, and you can leave it blank.'},
- {tab:'att',sel:'#fSex',title:'Gender',body:'Tap Male, Female or Prefer not to say. This is required. It is counted on the sheet, and the PDF keeps its “Sex” column with the same answer.'},
- {tab:'att',sel:'#pad',title:'Signature pad',body:'In the middle panel, draw the signature with a finger, stylus or mouse. Press Clear beside Submit to try again.'},
- {tab:'att',sel:'#sigsub',title:'Submit',body:'Press Submit to save the entry. Missing required items are highlighted. After a successful submit the form and pad are cleared for the next person, and the sheet is auto-backed up every 50 entries.'},
- {tab:'att',sel:'.acounts',title:'Live counts',body:'The right panel keeps the running totals in view while people check in: total, male, female, prefer not to say, signed and the number of 15-row sheets.'},
- {tab:'sum',sel:'.stats',title:'Summary tab · Totals',body:'Live totals: total entries, male, female and prefer-not-to-say counts, how many have signed, and how many 15-row sheets the PDF will need.'},
- {tab:'sum',sel:'#q',title:'Search',body:'Filter the attendance list by name or school. The page counter below the table follows your search.'},
- {tab:'sum',sel:'.scroll',title:'Attendance list',body:'Entries are grouped in sheets of 15. Signed entries show their signature; Pending ones have no signature yet. The trash icon removes an entry after a confirmation.'},
- {tab:'sum',sel:'#pager',title:'Pagination',body:'Under the table, use Prev and Next to move between pages, and “Rows per page” (15, 30, 50 or 100) to show more or fewer rows at once. It appears once there are entries.'},
- {tab:'sum',sel:'#bak',title:'Backup',body:'Opens a menu: save every entry, or just one date, as a CSV file with signatures. A progress screen shows while the file is prepared. Make a backup before closing the page or clearing the sheet.'},
- {tab:'sum',sel:'#imp',title:'Import CSV',body:'Loads entries from a backup CSV. Choose Add to append to the sheet or Replace to start from the file. When adding, entries with the same name, school and date are skipped, so importing several backups will not create duplicates.'},
- {tab:'sum',sel:'#clear',title:'Clear all',body:'Removes every entry and signature after a confirmation. This cannot be undone, so back up first if you are unsure.'},
- {tab:'sum',sel:'#pdf',title:'Download PDF',body:'Opens a menu: download the full sheet, the full sheet grouped by date, or a single date. Each is a landscape A4 sheet with 15 rows per page and the signatures. The table keeps a “Sex” column. Each page ends with the counts (for example, M - 14, F - 5, plus Prefer not to say when there is one), and the last page also shows the total.'},
- {tab:'att',sel:'#help',title:'You’re all set!',body:'Click this ? button whenever you want to replay the tutorial. Happy recording!'}
+ {tab:'att',title:'Quick tour',body:'A short walk through the header, the Attendee tab and the Summary tab. Use Next / Back or the ← → keys, and replay it any time with the {help} button.'},
+ {tab:'att',sel:['.brandrow .logo','.brandrow .org','header h1','#evtRow'],title:'Header',body:'Logo, title and the event line. These are printed on every PDF page. Tap {pencil} to edit the event line.'},
+ {tab:'att',sel:['#help','#set','#brand','#mode'],title:'Header buttons',body:'{help} Tutorial\n{clock} Idle screen: hides names after inactivity (default 1 minute)\n{palette} NSTW theme\n{moon} Light / dark mode'},
+ {tab:'att',sel:'.tabs',title:'Tabs',body:'Attendee is for check-in. Summary is for the list, backup, import and PDF. The badge counts all entries.'},
+ {tab:'att',sel:'#af',title:'Attendee tab · Check-in form',body:'Work top to bottom: START HERE, then NEXT, shows the next field.\n{user} Full name, {school} school and {users} gender are required. For school, type to search or choose “Use …” to keep your own text.'},
+ {tab:'att',sel:'#fGradeWrap',title:'Grade / year / role (optional)',body:'Pick Grade, Year or Role, then type the value, e.g. 11, 2 or Teacher. Leave it blank if not needed.'},
+ {tab:'att',sel:'#fSex',title:'Gender',body:'Choose Male or Female. The PDF lists it in its Sex column and totals each page.'},
+ {tab:'att',sel:['#pad','#sigsub'],title:'Sign and submit',body:'{pen} Sign in the box, then press Submit. {eraser} Clear redoes the signature.\n{done} The form clears for the next person, and the sheet auto-backs up every 50 entries.'},
+ {tab:'att',sel:'.acounts',title:'Live counts',body:'Running totals stay in view while people check in.'},
+ {tab:'sum',sel:['.stats','#q'],title:'Summary tab · Totals and search',body:'{chart} See totals at a glance.\n{search} Search the list by name or school.'},
+ {tab:'sum',sel:'.scroll',title:'Attendance list',body:'Entries are grouped in sheets of 15.\n{clock} Pending means no signature yet.\n{trash} Removes an entry.\n{pages} Use Prev / Next below the table, and choose how many rows per page.'},
+ {tab:'sum',sel:['#bak','#imp','#clear'],title:'Backup, import and clear',body:'{save} Backup: saves everything, or one date, as a CSV with signatures.\n{upload} Import CSV: adds to or replaces the sheet, skipping duplicates.\n{warn} Clear all can’t be undone, so back up first.'},
+ {tab:'sum',sel:'#pdf',title:'Download PDF',body:'{download} Get the full sheet, the sheet grouped by date, or one date. Each page holds 15 rows with signatures and male / female counts.'},
+ {tab:'att',sel:'#help',title:'You’re all set!',body:'Press {help} any time to replay this tour.'}
 ];
 const spot=$$('#tspot'),pop=$$('#tpop');
 let steps=[],ti=0,tourKey='nstw-tour-admin',firstLayout=true;
@@ -1656,8 +1666,8 @@ function layout(){
 }
 function go(n){
  ti=n;const s=steps[ti],isLast=ti===steps.length-1;if(s.tab)tab(s.tab);
- $$('#tcount').textContent=`Step ${ti+1} of ${steps.length}`;$$('#tfill').style.width=((ti+1)/steps.length*100)+'%';
- $$('#ttitle').textContent=s.title;$$('#tbody').textContent=s.body;
+ {const tb=$$('#tbar');if(tb.children.length!==steps.length)tb.innerHTML='<i></i>'.repeat(steps.length);[...tb.children].forEach((x,k)=>{x.classList.toggle('on',k<=ti);x.classList.toggle('cur',k===ti)});tb.setAttribute('aria-valuemax',steps.length);tb.setAttribute('aria-valuenow',ti+1);tb.setAttribute('aria-valuetext',`Step ${ti+1} of ${steps.length}`)}
+ $$('#ttitle').textContent=s.title;$$('#tbody').innerHTML=esc(s.body).replace(/\{([a-z-]+)\}/g,(m,n)=>PATHS[n]?`<span class="ti">${svg(n)}</span>`:m);
  $$('#tback').hidden=ti===0;$$('#tnext').textContent=isLast?'Finish':'Next';$$('#tskip').hidden=isLast;
  const els=vis(s.sel);if(els.length)els[0].scrollIntoView({block:'center',inline:'nearest'});
  if(firstLayout){pop.style.transition=spot.style.transition='none'}
